@@ -409,7 +409,10 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     }
     
     if (Feature==1){
-      targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
+      #targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
+      sort_names=sub("__CGI", "", sort_names)
+      targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=3,byrow=T)
+ 
       
       #CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/test_cgi",header=T,row.names=1)
       #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
