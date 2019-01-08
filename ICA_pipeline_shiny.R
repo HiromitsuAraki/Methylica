@@ -346,8 +346,10 @@ generate_region2loadings<-function(resICA,Genome,Feature){
                                    start=as.numeric(targetloci[,2]),
                                    end=as.numeric(targetloci[,3]),
                                    Loadings=as.numeric(round(resICA$S[,i],2)),
-                                   ClosestTSS=as.vector(CGI_closestTSS[rownames(resICA$S),"symbol"]),
-                                   DistToClosestTSS=as.numeric(CGI_closestTSS[rownames(resICA$S),"dist"]),
+                                   #ClosestTSS=as.vector(CGI_closestTSS[rownames(resICA$S),"symbol"]),
+                                   ClosestTSS=as.vector(CGI_closestTSS[targetloci,"symbol"]),
+                                   #DistToClosestTSS=as.numeric(CGI_closestTSS[rownames(resICA$S),"dist"]),
+                                   DistToClosestTSS=as.numeric(CGI_closestTSS[targetloci,"dist"]),
                                    IC=paste("IC",i,sep=""))
       targetregions=rbind(targetregions,targetregions.tmp)
     }
