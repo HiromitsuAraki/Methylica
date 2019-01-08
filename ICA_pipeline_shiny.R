@@ -328,6 +328,7 @@ generate_region2loadings<-function(resICA,Genome,Feature){
   
   if (Feature==1){
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
+    targetloci0=gsub("__CGI", "", rownames(resICA$S))
     targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)[,c(1:3)]
     
     #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
@@ -347,9 +348,9 @@ generate_region2loadings<-function(resICA,Genome,Feature){
                                    end=as.numeric(targetloci[,3]),
                                    Loadings=as.numeric(round(resICA$S[,i],2)),
                                    #ClosestTSS=as.vector(CGI_closestTSS[rownames(resICA$S),"symbol"]),
-                                   ClosestTSS=as.vector(CGI_closestTSS[targetloci,"symbol"]),
+                                   ClosestTSS=as.vector(CGI_closestTSS[targetloci0,"symbol"]),
                                    #DistToClosestTSS=as.numeric(CGI_closestTSS[rownames(resICA$S),"dist"]),
-                                   DistToClosestTSS=as.numeric(CGI_closestTSS[targetloci,"dist"]),
+                                   DistToClosestTSS=as.numeric(CGI_closestTSS[targetloci0,"dist"]),
                                    IC=paste("IC",i,sep=""))
       targetregions=rbind(targetregions,targetregions.tmp)
     }
