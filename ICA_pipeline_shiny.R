@@ -411,22 +411,20 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     if (Feature==1){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       
+      #CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/test_cgi",header=T,row.names=1)
+      #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
+      #if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg19_cgi2closestTSS",header=T,row.names=1)}
+      #if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm10_cgi2closestTSS",header=T,row.names=1)}
+      #if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm9_cgi2closestTSS",header=T,row.names=1)}
+      
+      if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+      
       if (Genome <=2){
       #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
       #  #CpGi=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/",Genome,"Tracks?db=",version, "&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">UCSC Genome Browser</a>")
-        
-        #CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/test_cgi",header=T,row.names=1)
-        #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
-        #if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg19_cgi2closestTSS",header=T,row.names=1)}
-        #if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm10_cgi2closestTSS",header=T,row.names=1)}
-        #if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm9_cgi2closestTSS",header=T,row.names=1)}
-        
-        if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-        if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-        if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-        if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
-        
-        
 
         target_CGI_closestTSS=CGI_closestTSS[sort_names,]
         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
@@ -434,6 +432,7 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       }
       
       if (Genome >=3){
+        target_CGI_closestTSS=CGI_closestTSS[sort_names,]
         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/mmTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
       }
       
