@@ -78,7 +78,7 @@ run_ICA_PC80<-function(dm,Method){
 
 
 
-###tabNama=ICs
+###tabName=ICs
 make_ICA_heatmap_shiny<-function(resICA,sampleList,GenomicFeature){
   
   #collist=c("blue","cyan","gray","yellow","red","pink","purple","lightgreen","magenta","green","orange")
@@ -328,7 +328,7 @@ generate_region2loadings<-function(resICA,Genome,Feature){
   
   if (Feature==1){
     targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
-    #targetloci0=gsub("__CGI", "", rownames(resICA$S))
+    targetloci0=gsub("__CGI", "", rownames(resICA$S))
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     
     #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
@@ -347,10 +347,10 @@ generate_region2loadings<-function(resICA,Genome,Feature){
                                    start=as.numeric(targetloci[,2]),
                                    end=as.numeric(targetloci[,3]),
                                    Loadings=as.numeric(round(resICA$S[,i],2)),
-                                   ClosestTSS=as.vector(CGI_closestTSS[rownames(resICA$S),"symbol"]),
-                                   #ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
-                                   DistToClosestTSS=as.numeric(CGI_closestTSS[rownames(resICA$S),"dist"]),
-                                   #DistToClosestTSS=as.numeric(CGI_closestTSS[as.matrix(targetloci0),"dist"]),
+                                   #ClosestTSS=as.vector(CGI_closestTSS[rownames(resICA$S),"symbol"]),
+                                   ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
+                                   #DistToClosestTSS=as.numeric(CGI_closestTSS[rownames(resICA$S),"dist"]),
+                                   DistToClosestTSS=as.numeric(CGI_closestTSS[as.matrix(targetloci0),"dist"]),
                                    IC=paste("IC",i,sep=""))
       targetregions=rbind(targetregions,targetregions.tmp)
     }
@@ -414,7 +414,7 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     
     if (Feature==1){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
-      #sort_names=gsub("__CGI", "", sort_names)
+      sort_names0=gsub("__CGI", "", sort_names)
       #targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=3,byrow=T)
  
       
@@ -429,17 +429,15 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
       if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
+      target_CGI_closestTSS=CGI_closestTSS[sort_names0,]
+      
       if (Genome <=2){
       #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
       #  #CpGi=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/",Genome,"Tracks?db=",version, "&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">UCSC Genome Browser</a>")
-
-        target_CGI_closestTSS=CGI_closestTSS[sort_names,]
-        CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
-        #GeneSymbol=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>"),
+         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
       }
       
       if (Genome >=3){
-        target_CGI_closestTSS=CGI_closestTSS[sort_names,]
         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/mmTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
       }
       

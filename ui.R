@@ -54,7 +54,7 @@ shinyUI(dashboardPage(skin="blue",
       tabItem(tabName = "DAtaupload",
           fileInput("data_input",  label="Upload methylome data",    accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt')),
           fileInput("sample_input",label="Upload sample information",accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt'))
-          #fileInput("RData_ICA",   label="Upload RData ICA",         accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt'))
+         #fileInput("RData_ICA",   label="Upload RData ICA",         accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt'))
           
       ),
       
