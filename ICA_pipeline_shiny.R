@@ -331,15 +331,15 @@ generate_region2loadings<-function(resICA,Genome,Feature){
     targetloci0=gsub("__CGI", "", rownames(resICA$S))
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     
-    #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
-    #if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg19_cgi2closestTSS",header=T,row.names=1)}
-    #if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm10_cgi2closestTSS",header=T,row.names=1)}
-    #if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm9_cgi2closestTSS",header=T,row.names=1)}
+    if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
     
-    if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+    #if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+    #if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+    #if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+    #if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
     
 
     for(i in 1:ncol(resICA$S)){
@@ -419,15 +419,15 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
  
       
       #CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/test_cgi",header=T,row.names=1)
-      #if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg38_cgi2closestTSS",header=T,row.names=1)}
-      #if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/hg19_cgi2closestTSS",header=T,row.names=1)}
-      #if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm10_cgi2closestTSS",header=T,row.names=1)}
-      #if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/mm9_cgi2closestTSS",header=T,row.names=1)}
+      if (Genome==1){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==2){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==3){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==4){CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/shiny/MakeMatrix3_forDrSangatsuda/cgi2genes/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
-      if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+      #if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      #if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      #if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      #if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
       target_CGI_closestTSS=CGI_closestTSS[sort_names0,]
       
