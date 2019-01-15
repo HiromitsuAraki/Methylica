@@ -41,41 +41,44 @@ Following data upload, Methylica requests its users to select species with its r
 <br>
 
 ### Visualizing ICs
-When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories, and a table of loading values comprising each IC. 
-#### Heatmap clustering of ICs
-When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories (Figure 1C), and a table of loading values comprising each IC (Figure 1D). 
+When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories, and a table of loading values comprising each IC.
+
+#### Heatmap clustering of mixing coefficient matrix
+A heatmap of clustering based on the mixing coefficient matrix A shows 
 
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
 <br>
 
 #### Boxplots
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Boxplots are 
+The x axis is weights in each IC and the y axis is groups categolized by sample property. Users can select 
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
 
 #### Loading factor table
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+This table is ....
 
 <img src="./README_files/Figures/ICtable.png" width=500x500>
 <br>
 
 
 ### Highliting highly contributed regions
+Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 #### Heatmap clustering of highly contributed regions
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 <img src="./README_files/Figures/HeatmapClustering_highLF.png" width=500x500>
 <br>
 
 #### Loading factor table of highly contributed regions
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
 
 #### Boxplots of highly contributed region
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
