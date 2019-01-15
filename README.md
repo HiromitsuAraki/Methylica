@@ -6,7 +6,7 @@ We have developed Methylica, a GUI-based tool for independent component analysis
 ### Install/Launch Methylica
 1.  Install [R environment](https://www.r-project.org/)
 2.  Install [shiny](https://www.rstudio.com/).
-'install.packages("shiny")'
+`install.packages("shiny")`
 
 ### Input files
 1.  Normalized SNP data
