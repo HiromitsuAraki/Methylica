@@ -24,11 +24,9 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
   **NOTE: The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**  
   
-## Check CNVs and update their breakpoints
+## Data uploading
+Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
 
-The most useful function of this app is to manually check each CNV and adjust inaccurate breakpoints, which is in the BAF/LRR panel as below:
-
-![BAF/LRR panel](./readme_files/fig/3.PNG)
 
 -   This figure will be shown once CNV "A004" is selected. Each dot represents a SNP probe, with X axis along chromosome coordination and Y axis showing normalized LRR and BAF.
 -   Two red vertical lines indicate the reported breakpoints of selected CNV, which is obviously correct according to the figure.
