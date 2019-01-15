@@ -35,7 +35,7 @@ Methylica requires methylome data and sample metadata as its inputs. Please refe
 <br>
 
 ### Parameter setting
-Following data upload, Methylica requests its users to select species with its reference genome version, genomic elements to be analyzed (CpG island, gene body, first intron and promoter), and k or the number of ICs (minimum = 2; maximum = the number of samples). Methylica provides a default setting of k, defined as the first k components whose cumulative contribution ratio exceeds 80% in principal component analysis.
+Following data upload, Methylica requests its users to select species with its reference genome version, genomic elements to be analyzed (CpG island, gene body, first intron and promoter), and k or the number of ICs (minimum = 2; maximum = the number of samples). Methylica provides a default setting of k, defined as the first k components whose cumulative contribution ratio exceeds 80% in principal component analysis. When users select all parameters, users need to click "Run" button to start 
 
 <img src="./README_files/Figures/Parameters.png" width=300x300>
 <br>
