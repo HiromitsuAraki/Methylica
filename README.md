@@ -14,7 +14,7 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   
 ## Input file format
 1. Methylome data
-  -  1st column:
+  -   1st column:
         -   Chr
         -   Position
         -   Log R Ratio
