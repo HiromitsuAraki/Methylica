@@ -13,6 +13,7 @@ The following R code will launch Methylica.
 <br>
 
 ## Input file format
+Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features, respectively.
 - Methylome data
   - 1st column: Chr
   - 2nd column: Start
@@ -28,20 +29,21 @@ The following R code will launch Methylica.
 
 ## Implementations
 ### Data uploading
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Methylica requires methylome data and sample metadata as its inputs. Please refer **Input file format** about file format of methylome data and sample metadata. 
 
 <img src="./README_files/Figures/DataUpload.png" width=300x300>
 <br>
 
 ### Parameter setting
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+Following data upload, Methylica requests its users to select species with its reference genome version, genomic elements to be analyzed, and k or the number of ICs (minimum = 2; maximum = the number of samples). Methylica provides a default setting of k, defined as the first k components whose cumulative contribution ratio exceeds 80% in principal component analysis. After data upload, users need to select three parameters. The first one is genome. Current version of Methylica can handle both Human and Mouse. The second parameter is genomic feature. Methylica can analyze CpG island, gene body and promoters. These two parameters are simples, but the last parameter is a little complicated. This is the number of ICs. However, Methylica provides default setting using PCA-based definition. Basically, you can select this default setting. 
+
 
 <img src="./README_files/Figures/Parameters.png" width=300x300>
 <br>
 
 ### Visualization ICs
 #### Heatmap clustering of ICs
-Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A (Figure 1B), boxplots to compare weightings among the user-defined group categories (Figure 1C), and a table of loading values comprising each IC (Figure 1D). 
 
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
 <br>
