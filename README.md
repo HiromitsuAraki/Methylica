@@ -8,7 +8,7 @@ We have developed Methylica, a GUI-based tool for independent component analysis
 2.  Install [shiny](https://shiny.rstudio.com).  
 `install.packages("shiny")`
 3.  Launch Methylica  
-`shiny::runGitHub("HiromitsuAraki/MatrixMaker")`
+`shiny::runGitHub("HiromitsuAraki/Methylica")`
 <br>
 
 ## Input file format
