@@ -29,7 +29,7 @@ Methylica requires methylome data and sample metadata as its inputs. The former 
 
 ## Implementations
 ### Data uploading
-Methylica requires methylome data and sample metadata as its inputs. Please refer **Input file format** about the file format of methylome data and sample metadata. Users need to assign the file location by 
+Methylica requires methylome data and sample metadata as its inputs. Please refer **Input file format** about the file format of methylome data and sample metadata. Users need to assign the file location from a browser.
 
 <img src="./README_files/Figures/DataUpload.png" width=300x300>
 <br>
