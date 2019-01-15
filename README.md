@@ -21,8 +21,8 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   - 5th column ~ : Methylome data of each sample      
 - Sample meta data
   - 1st column: Sample ID
-  - 2nd column ~ : Sample meta data (e.g. cancer subtype, stage, gender)
-  **NOTE: Any update to the CNV table will be saved in "cnv.bak" file under the App's folder.**
+  - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
+  **NOTE: The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**
   
 
 
