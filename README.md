@@ -14,42 +14,21 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   
 ## Input file format
 - Methylome data  
-  - 1st column:
-  - 2nd column:
-        -   Position
-        -   Log R Ratio
-        -   B Allele Freq
-    -   Detailed steps on preparing [**Illumina**](http://penncnv.openbioinformatics.org/en/latest/user-guide/input/) and [**Affymetrix**](http://penncnv.openbioinformatics.org/en/latest/user-guide/affy/) data are available from PennCNV's website.
-2.  Sample meta data
-    -   The reported CNVs could be called by software, as long as the following columns are provided (use the exact same column names):
-        -   index `/CNV ID; assigned  by users, which is used to compare the updated CNVs with the original ones`
-        -   caseID `/case ID; SNP data file is caseID.{suffix}`
-        -   controlID `/control ID; SNP data file is control.{suffix}; for unpaired cases, use other control`
-        -   chr `/chromosome`
-        -   start `/CNV start position`
-        -   end `/CNV end position`
-        -   CN `/copy number`
-        -   normRate `/normal sample contamination rate; set 0 if unknown`
-        -   gender `/Female or Male; set 'Unknown' if unknown`
-        -   paired `/Yes or No`
-    -   **NOTE: Since the sorting function is not available now, it would be good if users could sort the input CNV regions before loading to ShinyCNV.**
+  - 1st column: Chr
+  - 2nd column: Start
+  - 3rd column: End
+  - 4th column: Gene symbol
+  - 5th column ~ : Methylome data of each sample
+  
+- Sample meta data  
+  - 1st column: Chr
+  - 2nd column: Start
+  - 3rd column: End
+  - 4th column: Gene symbol
+  - 5th column ~ : Methylome data of each sample
+  
 
 
-## Input file format  
-Before loading the CNV table, make sure proper human genome build version is selected!
-Click the "Browse" button to import the CNV table:
-
-![CNV table panel](./readme_files/fig/2.PNG)
-
-Within this panel, you could:
-
--   select a CNV segment by clicking
--   read in SNP data based on the imported case ID and control ID, **which could be very slow!!!**
--   use "Prev/Next CNV" button to navigate the selected CNV
--   add/delete CNV
--   mark selected CNV as germline/covered/false/true by clicking the buttons
--   set chr/copy number(CN)/normRate(NR); "set chr" is only for newly added CNVs
--   clear the imported SNP data, be cautious on doing this
 
 Check CNVs and update their breakpoints
 ---------------------------------------
