@@ -40,11 +40,8 @@ Following data upload, Methylica requests its users to select species with its r
 <img src="./README_files/Figures/Parameters.png" width=300x300>
 <br>
 
-### Visualization ICs
+### Visualizing ICs
 When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories, and a table of loading values comprising each IC. 
-<br>
-<br>
-
 #### Heatmap clustering of ICs
 When ICA is completed, Methylica provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories (Figure 1C), and a table of loading values comprising each IC (Figure 1D). 
 
