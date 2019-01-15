@@ -37,10 +37,6 @@ run_ICA_PC80<-function(dm){
   dm_data=dm[,c(5:ncol(dm))]
   rownames(dm_data)=dm_loci
   
-  library(MineICA)
-  library(XLConnect)
-  library(openxlsx)
-  library(rmarkdown)
   set.seed(1974414)
   
   ##num PC >= 80
