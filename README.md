@@ -13,14 +13,14 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   
   
 ## Input file format
-- Methylome data  
+- Methylome data
   - 1st column: Chr
   - 2nd column: Start
   - 3rd column: End
   - 4th column: Gene symbol
   - 5th column ~ : Methylome data of each sample
   
-- Sample meta data  
+- Sample meta data
   - 1st column: Chr
   - 2nd column: Start
   - 3rd column: End
