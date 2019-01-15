@@ -72,13 +72,11 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <br>
 
 #### Loading factor table of highly contributed regions
-Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
 
 #### Boxplots of highly contributed region
-Once an IC of interest is identified in Step 3, Methylica can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
