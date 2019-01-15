@@ -20,13 +20,10 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   - 4th column: Gene symbol
   - 5th column ~ : Methylome data of each sample      
 - Sample meta data
-  - 1st column: Chr
-  - 2nd column: Start
-  - 3rd column: End
-  - 4th column: Gene symbol
-  - 5th column ~ : Methylome data of each sample
+  - 1st column: Sample ID
+  - 2nd column ~ : Sample meta data (e.g. cancer subtype, stage, gender)
+  **NOTE: Any update to the CNV table will be saved in "cnv.bak" file under the App's folder.**
   
-
 
 
 Check CNVs and update their breakpoints
