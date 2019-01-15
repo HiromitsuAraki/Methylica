@@ -23,8 +23,6 @@ run_ICA<-function(dm,IC){
   colnames(resICA$A)=colnames(dm_data)
   resICA$A=t(resICA$A)
   
-  }
-  
   return(resICA)
   
 }
