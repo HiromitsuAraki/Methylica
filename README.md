@@ -13,9 +13,8 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   
   
 ## Input file format
-1.  Methylome data
-    -   Same input file for [OncoSNP](https://sites.google.com/site/oncosnp/user-guide/input-files). The following 5 columns are required:
-        -   SNP Name
+1. Methylome data
+  - 1st column:
         -   Chr
         -   Position
         -   Log R Ratio
