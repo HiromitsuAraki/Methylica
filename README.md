@@ -8,7 +8,7 @@ Methylica is a GUI-based tool for independent component analysis (ICA) of methyl
 2.  Install [shiny](https://shiny.rstudio.com).  
 `install.packages("shiny")`
 3.  Launch Methylica  
-The following R code will launch Methylica.
+The following R code will launch Methylica.  
 `shiny::runGitHub("HiromitsuAraki/Methylica")`
 <br>
 
