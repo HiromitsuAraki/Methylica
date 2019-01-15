@@ -1,4 +1,4 @@
-# Methylica
+**Methylica**
 
 A GUI tool for independent component analysis of methylome data
 ---------------------------------------------------------------------
