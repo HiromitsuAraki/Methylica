@@ -18,7 +18,9 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   - 2nd column: Start
   - 3rd column: End
   - 4th column: Gene symbol
-  - 5th column ~ : Methylome data of each sample <br>
+  - 5th column ~ : Methylome data of each sample
+  <br>
+  <br>
 - Sample meta data
   - 1st column: Sample ID
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
