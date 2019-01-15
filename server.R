@@ -27,8 +27,7 @@ shinyInput <- function(FUN, len, id, ...) {
 }
 
 # Source ICA pipeline ----  
-#source("ICA_pipeline_shiny_gan2018.R")
-source("ICA_pipeline_shiny.R")
+source("Methylica_pipeline.R")
 
 
 ###Server
@@ -84,10 +83,10 @@ shinyServer(function(input, output, session) {
     Data_methylome <- data_methylome()
     withProgress(message = 'Calculation in progress', {
       if (input$ICnumPCA==FALSE){
-        ica$ICAres <- run_ICA(Data_methylome,"fastICA",as.integer(input$ICnum))
+        ica$ICAres <- run_ICA(Data_methylome,as.integer(input$ICnum))
       }
       if (input$ICnumPCA==TRUE){
-        ica$ICAres <- run_ICA_PC80(Data_methylome,"fastICA")
+        ica$ICAres <- run_ICA_PC80(Data_methylome)
       }
     })
   })
@@ -266,7 +265,7 @@ shinyServer(function(input, output, session) {
     if (input$GenomicFeature==3){genomicFeature="Promoter";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     
     TargetGroup=as.character(input$SampleProperty2)
-    #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
+   #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
     dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),]))
     colnames(dF)=c(TargetGroup,"meth")
     
@@ -293,7 +292,6 @@ shinyServer(function(input, output, session) {
       gp <- gp + stat_compare_means(method = "t.test")
     }
     
-    #bsModal("modalExample", paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], GenomicFeature,sep="  "), "", size = "large",
     bsModal("modalExample", Title, "", size = "large",
             
             column(12,

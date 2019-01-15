@@ -20,9 +20,8 @@ library(shinycssloaders)
 library(highcharter)
 
 
-# Source ICA pipeline ----
-#source("ICA_pipeline_shiny_gan2018.R")
-source("ICA_pipeline_shiny.R")
+#Source ICA pipeline ----
+source("Methylica_pipeline.R")
 
 
 ###UI
@@ -75,7 +74,8 @@ shinyUI(dashboardPage(skin="blue",
                            label = h3("Select Feature"), 
                            choices = list("CGI"       = 1, 
                                           "Gene body" = 2, 
-                                          "Promoter"  = 3),                           
+                                          "1st intron"= 3,
+                                          "Promoter"  = 4),                           
                            selected = ""),
 
 
