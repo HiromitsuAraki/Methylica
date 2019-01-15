@@ -40,7 +40,7 @@ Methylica requires methylome data and sample metadata as its inputs. The former 
 <br>
 
 ### Visualization ICs
-#### Heatmap clustering
+#### Heatmap clustering of ICs
 Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
 
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
@@ -60,6 +60,20 @@ Methylica requires methylome data and sample metadata as its inputs. The former 
 
 
 ### Highliting highly contributed regions
+#### Heatmap clustering of highly contributed regions
 Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
 
-<img src="./README_files/Figures/Parameters.png" width=400x400>
+<img src="./README_files/Figures/HeatmapClustering_highLF.png" width=500x500>
+<br>
+
+#### Loading factor table
+Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+
+<img src="./README_files/Figures/ICtable_highLF" width=500x500>
+<br>
+
+#### Boxplots
+Methylica requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features (e.g. gender, risk factor, and cancer subtype), respectively. The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).
+
+<img src="./README_files/Figures/Boxplots.png" width=500x500>
+<br>
