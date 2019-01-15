@@ -1,4 +1,4 @@
-Methylica
+# Methylica
 
 A Shiny/R application to view and annotate DNA copy number variations
 ---------------------------------------------------------------------
