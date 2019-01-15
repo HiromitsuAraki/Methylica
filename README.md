@@ -9,7 +9,8 @@ We have developed Methylica, a GUI-based tool for independent component analysis
 `install.packages("shiny")`
 3.  Launch Methylica  
 `shiny::runGitHub("HiromitsuAraki/MatrixMaker")`  
-
+  
+  
 ## Input files
 1.  Normalized SNP data
     -   Same input file for [OncoSNP](https://sites.google.com/site/oncosnp/user-guide/input-files). The following 5 columns are required:
