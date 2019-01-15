@@ -23,11 +23,8 @@ We have developed Methylica, a GUI-based tool for independent component analysis
   - 1st column: Sample ID
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
   **NOTE: The status of the features should be discrete, as Methylica cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**
-  
 
-
-Check CNVs and update their breakpoints
----------------------------------------
+## Check CNVs and update their breakpoints
 
 The most useful function of this app is to manually check each CNV and adjust inaccurate breakpoints, which is in the BAF/LRR panel as below:
 
