@@ -49,7 +49,7 @@ The vertical axis corresponds to mixing coefficients (sample weight in each IC) 
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
 <br>
 
-#### Boxplots
+#### Boxplots of mixing coefficient matrix
 The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data.
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
