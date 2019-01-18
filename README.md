@@ -44,7 +44,10 @@ Following data upload, *Methylica* requests its users to select species with its
 When ICA is completed, *Methylica* provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories, and a table of loading values comprising each IC.
 
 #### Heatmap clustering of mixing coefficient matrix
-A heatmap of clustering based on the mixing coefficient matrix A shows 
+The vertical axis corresponds to mixing coefficients (sample weight in each IC) and the horizontal axis corresponds to samples. 
+
+The genomic regions are sorted by loadings.
+
 
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
 <br>
@@ -56,8 +59,8 @@ The x axis is weights in each IC and the y axis is groups categolized by sample 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
 
-#### Loading factor table
-This table is ....
+#### Loading score table
+Regions with absolute loadins >=2 are appeared in this table.
 
 <img src="./README_files/Figures/ICtable.png" width=500x500>
 <br>
