@@ -55,8 +55,8 @@ The x axis is sample weights in each IC and the y axis is group categolized base
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
 
-#### Loading score table
-Regions with absolute loadins >=2 are appeared in this table.
+#### Loading factor table
+Regions with absolute loadings >=2 are appeared in this table.
 
 <img src="./README_files/Figures/ICtable.png" width=500x500>
 <br>
@@ -72,12 +72,12 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <br>
 
 #### Loading factor table of highly contributed regions
-Regions with absolute loadins >=2 are appeared in this table.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
 
 #### Boxplots of highly contributed region
+
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
