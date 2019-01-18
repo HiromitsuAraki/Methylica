@@ -72,12 +72,15 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <br>
 
 #### Loading factor table of highly contributed regions
-The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data. Boxplots can be downloaded by pressing *Download* button. Whole list of loading factor table can be downloaded by pressing *Download* button.
+Boxplot
+
+Whole list of loading factor table can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
 
-#### Boxplots of highly contributed region
+#### Boxplot of highly contributed region
+The x axis is methylation level and the y axis is each group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data in . Boxplots can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
