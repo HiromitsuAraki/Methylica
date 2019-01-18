@@ -13,7 +13,7 @@ The following R code will launch *Methylica*.
 <br>
 
 ## Input file format
-*Methylica* requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features, respectively.
+*Methylica* requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features, respectively. We provide [*MatrixMaker*](https://github.com/HiromitsuAraki/MatrixMaker), which generate input format of *Methylica*. 
 - Methylome data
   - 1st column: Chr
   - 2nd column: Start
