@@ -46,15 +46,11 @@ When ICA is completed, *Methylica* provides a heatmap of clustering based on the
 #### Heatmap clustering of mixing coefficient matrix
 The vertical axis corresponds to mixing coefficients (sample weight in each IC) and the horizontal axis corresponds to samples. 
 
-The genomic regions are sorted by loadings.
-
-
 <img src="./README_files/Figures/HeatmapClustering.png" width=500x500>
 <br>
 
 #### Boxplots
-Boxplots are 
-The x axis is weights in each IC and the y axis is groups categolized by sample property. Users can select 
+The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data.
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
