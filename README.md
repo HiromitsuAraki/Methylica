@@ -29,7 +29,7 @@ The following R code will launch *Methylica*.
 
 ## Implementations
 ### Data uploading
-*Methylica* requires methylome data and sample metadata as its inputs. Please refer **Input file format** about the file format of methylome data and sample metadata. Users need to assign the file location from a browser.
+*Methylica* requires methylome data and sample metadata as its inputs. Please refer **Input file format** about the file format of methylome data and sample metadata for *Methylica*. Users need to assign the file location from a browser as below.
 
 <img src="./README_files/Figures/DataUpload.png" width=300x300>
 <br>
