@@ -50,7 +50,7 @@ The vertical axis corresponds to mixing coefficients (sample weight in each IC) 
 <br>
 
 #### Boxplots of mixing coefficient matrix
-The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data. Boxplots can be downloaded by pressing *Download* button.
+The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature in *Sample property* box as a group defined in sample meta data box. Boxplots can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
@@ -72,7 +72,7 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <br>
 
 #### Loading factor table of highly contributed regions
-Boxplot
+Boxplot is appeared by clicking gene symbol.
 
 Whole list of loading factor table can be downloaded by pressing *Download* button.
 
@@ -80,7 +80,7 @@ Whole list of loading factor table can be downloaded by pressing *Download* butt
 <br>
 
 #### Boxplot of highly contributed region
-The x axis is methylation level and the y axis is each group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data in . Boxplots can be downloaded by pressing *Download* button.
+The x axis is methylation level and the y axis is each group categolized based on sample feature. Users can select another sample feature as a group defined in sample meta data in *Sample property* box. 
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
