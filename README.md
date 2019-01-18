@@ -55,7 +55,7 @@ The x axis is sample weights in each IC and the y axis is group categolized base
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
 
-#### Loading factor table
+#### Loadings table
 Regions with absolute loadings >=2 are appeared in this table. Users can retrieve user's interesting genes in *Search* text box.
 
 <img src="./README_files/Figures/ICtable.png" width=500x500>
@@ -71,10 +71,8 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <img src="./README_files/Figures/HeatmapClustering_highLF.png" width=500x500>
 <br>
 
-#### Loading factor table of highly contributed regions
-Boxplot is appeared by clicking gene symbol.
-
-Whole list of loading factor table can be downloaded by pressing *Download* button.
+#### Loadings table of highly contributed regions
+Boxplot of methylome data in each region is appeared by clicking gene symbol (see **Boxplot of highly contributed region**). Whole list of loadings table can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
