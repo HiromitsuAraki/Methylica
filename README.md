@@ -56,7 +56,7 @@ The x axis is sample weights in each IC and the y axis is group categolized base
 <br>
 
 #### Loading factor table
-Regions with absolute loadings >=2 are appeared in this table. Users can retrieve user's interesting genes in 
+Regions with absolute loadings >=2 are appeared in this table. Users can retrieve user's interesting genes in *Search:* text box.
 
 <img src="./README_files/Figures/ICtable.png" width=500x500>
 <br>
