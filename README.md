@@ -62,8 +62,9 @@ Regions with absolute loadins >=2 are appeared in this table.
 <br>
 
 
-### Highliting highly contributed regions
+### highlighting highly contributed regions
 Once an IC of interest is identified, *Methylica* can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
+
 #### Heatmap clustering of highly contributed regions
 Users can assign IC and threshold of loadings to be visualized in "IC" and "Loadings" text box respectively. The vertical axis corresponds to genomic regions with high loadings and the horizontal axis corresponds to samples. The genomic regions are sorted by loadings. 
 
@@ -71,6 +72,7 @@ Users can assign IC and threshold of loadings to be visualized in "IC" and "Load
 <br>
 
 #### Loading factor table of highly contributed regions
+Regions with absolute loadins >=2 are appeared in this table.
 
 <img src="./README_files/Figures/ICtable_highLF.png" width=500x500>
 <br>
