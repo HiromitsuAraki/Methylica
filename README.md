@@ -24,7 +24,7 @@ The following R code will launch *Methylica*.
 - Sample meta data
   - 1st column: Sample ID
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
-<br>
+  
 **NOTE: The status of the features should be discrete, as *Methylica* cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**  
 <br>
 
