@@ -25,7 +25,7 @@ The following R code will launch *Methylica*.
   - 1st column: Sample ID
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
   
-**NOTE: The sample IDs described on 5th column ~ in methylome data and on 1st column in sample meta data have to be identical.**  
+**NOTE: The sample IDs on 5th column ~ in methylome data and on 1st column in sample meta data have to be identical.**  
 <br>
 
 ## Implementations
