@@ -13,7 +13,7 @@ The following R code will launch *Methylica*.
 <br>
 
 ## Input file format
-*Methylica* requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features, respectively. We provide [*MatrixMaker*](https://github.com/HiromitsuAraki/MatrixMaker), which converts user's methylome data to a data matrix compatible with *Methylica*. 
+*Methylica* requires methylome data and sample metadata as its inputs. The former is a matrix of methylation levels, rows and columns of which correspond to genomic regions and samples, respectively. The latter is a tab-delimited text file, rows and columns of which correspond to samples and features, respectively. The status of the features should be discrete, as *Methylica* cannot accept metadata with continuous values (e.g. age, tumor size, and survival date). We provide [*MatrixMaker*](https://github.com/HiromitsuAraki/MatrixMaker), which converts user's methylome data to a data matrix compatible with *Methylica*. 
 - Methylome data
   - 1st column: Chr
   - 2nd column: Start
@@ -24,7 +24,8 @@ The following R code will launch *Methylica*.
 - Sample meta data
   - 1st column: Sample ID
   - 2nd column ~ : Status of the features (e.g. cancer subtype, stage, gender)  
-  **NOTE: The status of the features should be discrete, as *Methylica* cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**  
+<br>
+**NOTE: The status of the features should be discrete, as *Methylica* cannot accept metadata with continuous values (e.g. age, tumor size, and survival date).**  
 <br>
 
 ## Implementations
