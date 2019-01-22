@@ -261,8 +261,9 @@ shinyServer(function(input, output, session) {
     ####bsModal("modalExample", paste("Methylation Plot",input$GenomicFeature, highLFlist_fun()$genesymbol[SelectedRow()], "p=",anova_p(),"(one-way anova)",sep="  "), "", size = "large",
     
     if (input$GenomicFeature==1){genomicFeature="CpG island"; Title=paste("Methylation Plot",genomicFeature,sep="  ")}
-    if (input$GenomicFeature==2){genomicFeature="Gene body";  Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
-    if (input$GenomicFeature==3){genomicFeature="Promoter";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==2){genomicFeature="Gene body" ; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==3){genomicFeature="1st intron"; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==4){genomicFeature="Promoter"  ; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     
     TargetGroup=as.character(input$SampleProperty2)
    #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
@@ -292,7 +293,8 @@ shinyServer(function(input, output, session) {
       gp <- gp + stat_compare_means(method = "t.test")
     }
     
-    bsModal("modalExample", Title, "", size = "large",
+    #bsModal("modalExample", Title, "", size = "large",
+    bsModal("modalExample", "", size = "large",
             
             column(12,
                    renderPlot({gp})
