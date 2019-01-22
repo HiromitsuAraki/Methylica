@@ -212,6 +212,8 @@ shinyServer(function(input, output, session) {
     make_highLF_meth_target_shiny(ICA_result,inFile_ICA,datamat,Zscore,Target)
   })
   
+  
+  
   my_data<-reactive({
     testdata=highLFlist_fun()
     testdata=testdata[,-5]
@@ -243,8 +245,7 @@ shinyServer(function(input, output, session) {
     as.numeric(strsplit(input$select_button, "_")[[1]][2])
   })
   
-  # This is needed so that the button is clicked once for modal to show, a bug reported here
-  # https://github.com/ebailey78/shinyBS/issues/57
+  
   observeEvent(input$select_button, {
     toggleModal(session, "modalExample", "open")
   })
@@ -254,19 +255,19 @@ shinyServer(function(input, output, session) {
   #collist=c("magenta","green","red","blue")
   set.seed(0414) 
   collist=grDevices::colors()[grep('gr(a|e)y', grDevices::colors(), invert = T)][sample(433,100,replace=F)]
-
-
+  
+  
   output$popup <- renderUI({
     print(input$select_button)
     ####bsModal("modalExample", paste("Methylation Plot",input$GenomicFeature, highLFlist_fun()$genesymbol[SelectedRow()], "p=",anova_p(),"(one-way anova)",sep="  "), "", size = "large",
     
     if (input$GenomicFeature==1){genomicFeature="CpG island"; Title=paste("Methylation Plot",genomicFeature,sep="  ")}
-    if (input$GenomicFeature==2){genomicFeature="Gene body" ; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
-    if (input$GenomicFeature==3){genomicFeature="1st intron"; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
-    if (input$GenomicFeature==4){genomicFeature="Promoter"  ; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==2){genomicFeature="Gene body";  Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==3){genomicFeature="1st intron";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==4){genomicFeature="Promoter";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     
     TargetGroup=as.character(input$SampleProperty2)
-   #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
+    #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
     dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),]))
     colnames(dF)=c(TargetGroup,"meth")
     
@@ -279,10 +280,10 @@ shinyServer(function(input, output, session) {
                   xlab="",
                   size=1,
                   ylim=c(0,100),ylab="Methylation level (%)") + 
-                  font("ylab", size = 20, color = "black")+
-                  font("y.text", size = 20, color = "black")+
-                  #ylim=c(0,1),ylab="Methylation level") + 
-    
+      font("ylab", size = 20, color = "black")+
+      font("y.text", size = 20, color = "black")+
+      #ylim=c(0,1),ylab="Methylation level") + 
+      
       theme(axis.text.x = element_blank())
     
     if (NROW(unique(sampleInfo()[,TargetGroup]))>2){
@@ -293,8 +294,8 @@ shinyServer(function(input, output, session) {
       gp <- gp + stat_compare_means(method = "t.test")
     }
     
-    #bsModal("modalExample", Title, "", size = "large",
-    bsModal("modalExample", "", size = "large",
+    #bsModal("modalExample", paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], GenomicFeature,sep="  "), "", size = "large",
+    bsModal("modalExample", Title, "", size = "large",
             
             column(12,
                    renderPlot({gp})
@@ -305,4 +306,5 @@ shinyServer(function(input, output, session) {
     
   })
 })
+
 

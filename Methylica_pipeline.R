@@ -334,13 +334,14 @@ generate_region2loadings<-function(resICA,Genome,Feature){
 
 
 
+
 generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
   
-
+  
   
   ###remove common ICs
   ######A0=t(resICA$A)
- #resICA$S=resICA$S[,(-1)*order(rowMax(abs(A0)),decreasing=T)[1]]
+  #resICA$S=resICA$S[,(-1)*order(rowMax(abs(A0)),decreasing=T)[1]]
   ######resICA$S=resICA$S[,(-1)*order(as.numeric(rowMax(abs(A0))),decreasing=T)[1]]
   
   
@@ -352,14 +353,14 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
   
   ####all data
   target_dm=subset(resICA$S[,TargetIC],abs(resICA$S[,TargetIC])>=Zscore)
-
-
+  
+  
   
   if (length(target_dm)>1){
     sort_names=names(sort(target_dm,decreasing=T))
     
     #targetloci=matrix(unlist(strsplit(names(target_dm), "_")),ncol=4,byrow=T)
-  
+    
     if (Feature>=2){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       
@@ -372,31 +373,27 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       }
       
       targetgenes=data.frame(chr=targetloci[,1],
-                           start=as.numeric(targetloci[,2]),
-                           end=as.numeric(targetloci[,3]),
-                           GeneSymbol=paste0("<a href=\"https://www.ncbi.nlm.nih.gov/gene/",geneSymbols2Id,"\" target=\"blank_\">",targetloci[,4],"</a>"),
-                           #genesymbol="CGI",
-                           genesymbol=targetloci[,4],
-                           symbol=targetloci[,4],
-                           Loadings=as.numeric(round(target_dm[sort_names],2)))
+                             start=as.numeric(targetloci[,2]),
+                             end=as.numeric(targetloci[,3]),
+                             GeneSymbol=paste0("<a href=\"https://www.ncbi.nlm.nih.gov/gene/",geneSymbols2Id,"\" target=\"blank_\">",targetloci[,4],"</a>"),
+                             #genesymbol="CGI",
+                             genesymbol=targetloci[,4],
+                             symbol=targetloci[,4],
+                             Loadings=as.numeric(round(target_dm[sort_names],2)))
     }
     
     if (Feature==1){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
-      sort_names0=gsub("__CGI", "", sort_names)
-      #targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=3,byrow=T)
- 
-      if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
-      
-      target_CGI_closestTSS=CGI_closestTSS[sort_names0,]
       
       if (Genome <=2){
-      #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
-      #  #CpGi=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/",Genome,"Tracks?db=",version, "&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">UCSC Genome Browser</a>")
-         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
+        #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
+        #  #CpGi=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/",Genome,"Tracks?db=",version, "&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">UCSC Genome Browser</a>")
+        
+        CGI_closestTSS=read.table("/Users/h_araki/projects/ICA/test_cgi",header=T,row.names=1)
+
+        target_CGI_closestTSS=CGI_closestTSS[sort_names,]
+        CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
+        #GeneSymbol=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>"),
       }
       
       if (Genome >=3){
@@ -406,7 +403,7 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       targetgenes=data.frame(chr=targetloci[,1],
                              start=as.numeric(targetloci[,2]),
                              end=as.numeric(targetloci[,3]),
-
+                             
                              #GeneSymbol=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",Genome, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>"),
                              GenomeBrowser=CGI_URL,
                              
@@ -415,7 +412,7 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
                              ClosestTSS=as.vector(target_CGI_closestTSS[,"symbol"]),
                              DistToClosestTSS=as.numeric(target_CGI_closestTSS[,"dist"])
                              #genesymbol=paste(targetloci[,1],targetloci[,2],targetloci[,3],sep="_"),
-                             )
+      )
       
     }
     
