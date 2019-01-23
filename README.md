@@ -42,7 +42,7 @@ Following data upload, *Methylica* requests its users to select species with its
 <br>
 
 ### Visualizing ICs
-When ICA is completed, *Methylica* provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined group categories, and a table of loading values comprising each IC.
+When ICA is completed, *Methylica* provides a heatmap of clustering based on the mixing coefficient matrix A, boxplots to compare weightings among the user-defined sample features, and a table of loading values comprising each IC.
 
 #### Heatmap clustering of mixing coefficient matrix
 The vertical axis corresponds to mixing coefficients (sample weight in each IC) and the horizontal axis corresponds to samples. Heatmap clustering can be downloaded by pressing *Download* button.
@@ -51,7 +51,7 @@ The vertical axis corresponds to mixing coefficients (sample weight in each IC) 
 <br>
 
 #### Boxplots of mixing coefficient matrix
-The x axis is sample weights in each IC and the y axis is group categolized based on sample feature. Users can select another sample feature in *Sample property* box as a group defined in sample meta data box. Boxplots can be downloaded by pressing *Download* button.
+The x axis is sample weights in each IC and the y axis is a sample feature defined in sample meta data. Users can select another sample feature in *Sample property* box as a group defined in sample meta data box. Boxplots can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
