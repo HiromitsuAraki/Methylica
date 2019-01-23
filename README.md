@@ -51,7 +51,7 @@ The vertical axis corresponds to mixing coefficients (sample weight in each IC) 
 <br>
 
 #### Boxplots of mixing coefficient matrix
-The x axis is sample weights in each IC and the y axis is a sample feature defined in sample meta data. Users can select another sample feature in *Sample property* box as a group defined in sample meta data box. Boxplots can be downloaded by pressing *Download* button.
+The x axis is sample weights in each IC and the y axis is a sample feature defined in sample meta data. Users can select another sample feature in *Sample property* box as a sample feature defined in sample meta data box. Boxplots can be downloaded by pressing *Download* button.
 
 <img src="./README_files/Figures/Boxplots.png" width=500x500>
 <br>
@@ -64,7 +64,7 @@ Regions with absolute loadings >=2 are appeared in this table. Users can retriev
 
 
 ### Highlighting highly contributed regions
-Once an IC of interest is identified, *Methylica* can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in group categories are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
+Once an IC of interest is identified, *Methylica* can display its high loading genomic regions as a methylation heatmap and a clickable list to select a region whose methylation levels in sample features are indicated as boxplots. The list can be exported for various analyses (e.g. GO enrichment and sequence motif search) to facilitate biological interpretation of the IC.
 
 #### Heatmap clustering of highly contributed regions
 Users can assign IC and threshold of loadings to be visualized in "IC" and "Loadings" text box respectively. The vertical axis corresponds to genomic regions with high loadings and the horizontal axis corresponds to samples. The genomic regions are sorted by loadings. Heatmap clustering can be downloaded by pressing *Download* button.
@@ -79,7 +79,7 @@ Boxplot of methylome data in each region is appeared by clicking gene symbol (se
 <br>
 
 #### Boxplot of highly contributed region
-The x axis is methylation level and the y axis is each group categorization based on sample feature. Users can select another sample feature as a group defined in sample meta data in *Sample property* box. 
+The x axis is methylation level and the y axis is sample features. Users can select another sample feature defined in sample meta data in *Sample property* box. 
 
 <img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
 <br>
