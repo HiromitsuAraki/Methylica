@@ -5,7 +5,7 @@ library(shinyjs)
 library(shinydashboard)
 library(R.utils)
 library(data.table)
-library(jpeg)
+#library(jpeg)
 library(png)
 library(fields)
 library(circlize)
@@ -186,6 +186,7 @@ shinyServer(function(input, output, session) {
   )
   
   
+  
   region2loadings=reactive({
     ICA_result=ica$ICAres
     Genome=input$checkGenome
@@ -263,7 +264,7 @@ shinyServer(function(input, output, session) {
     
     if (input$GenomicFeature==1){genomicFeature="CpG island"; Title=paste("Methylation Plot",genomicFeature,sep="  ")}
     if (input$GenomicFeature==2){genomicFeature="Gene body";  Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
-    if (input$GenomicFeature==3){genomicFeature="1st intron";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
+    if (input$GenomicFeature==3){genomicFeature="1st intron"; Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     if (input$GenomicFeature==4){genomicFeature="Promoter";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     
     TargetGroup=as.character(input$SampleProperty2)
@@ -275,8 +276,10 @@ shinyServer(function(input, output, session) {
                   colnames(dF)[1],colnames(dF)[2],
                   color = colnames(dF)[1],
                   palette=collist[1:NROW(sampleInfo()[,TargetGroup])],
-                  add = "jitter",
-                  add.params = list(size=2),
+                  #add = "jitter",
+                  add = "dotplot",
+                  
+                  #add.params = list(size=2),
                   xlab="",
                   size=1,
                   ylim=c(0,100),ylab="Methylation level (%)") + 
@@ -285,6 +288,8 @@ shinyServer(function(input, output, session) {
       #ylim=c(0,1),ylab="Methylation level") + 
       
       theme(axis.text.x = element_blank())
+    
+    gp <- gp + bgcolor("lightgray")
     
     if (NROW(unique(sampleInfo()[,TargetGroup]))>2){
       gp <- gp + stat_compare_means(method = "anova")
