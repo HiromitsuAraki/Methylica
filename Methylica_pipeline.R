@@ -6,7 +6,10 @@ librarylist_bc=c("ComplexHeatmap","org.Hs.eg.db","org.Mm.eg.db")
 is.exist_cran <- librarylist_cran %in% rownames(installed.packages())
 is.exist_bc <- librarylist_bc   %in% rownames(installed.packages())
 if(length(librarylist_cran[!(is.exist_cran)])>0){install.packages(librarylist_cran[!(is.exist_cran)])}
-if(length(librarylist_bc[!(is.exist_bc)])>0){install.packages(librarylist_bc[!(is.exist_bc)])}
+if(length(librarylist_bc[!(is.exist_bc)])>0){
+  install.packages("BiocManager")
+  BiocManager::install(librarylist_bc[!(is.exist_bc)])
+}
 
 
 library(R.utils)
