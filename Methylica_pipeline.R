@@ -366,11 +366,6 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
   if (Genome==3){genomeref="mm10"}
   if (Genome==4){genomeref="mm9"}
   
-  if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-  if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-  if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-  if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
-  
   
   ####all data
   target_dm=subset(resICA$S[,TargetIC],abs(resICA$S[,TargetIC])>=Zscore)
@@ -404,7 +399,14 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     }
     
     if (Feature==1){
+      
+      if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+      
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
+      targetloci0=gsub("__CGI", "", rownames(resICA$S))
       
       if (Genome <=2){
         #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
@@ -429,9 +431,13 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
                              
                              genesymbol="CGI",
                              Loadings=as.numeric(round(target_dm[sort_names],2)),
-                             ClosestTSS=as.vector(target_CGI_closestTSS[,"symbol"]),
-                             DistToClosestTSS=as.numeric(target_CGI_closestTSS[,"dist"])
+                             #ClosestTSS=as.vector(target_CGI_closestTSS[,"symbol"]),
+                             #DistToClosestTSS=as.numeric(target_CGI_closestTSS[,"dist"])
+                             ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
+                             DistToClosestTSS=as.numeric(CGI_closestTSS[as.matrix(targetloci0),"dist"])
                              #genesymbol=paste(targetloci[,1],targetloci[,2],targetloci[,3],sep="_"),
+
+                             
       )
       
     }
