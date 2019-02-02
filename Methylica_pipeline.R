@@ -353,8 +353,6 @@ generate_region2loadings<-function(resICA,Genome,Feature){
 
 generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
   
-  
-  
   ###remove common ICs
   ######A0=t(resICA$A)
   #resICA$S=resICA$S[,(-1)*order(rowMax(abs(A0)),decreasing=T)[1]]
@@ -400,21 +398,25 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     
     if (Feature==1){
       
+      targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
+      sort_names0=gsub("__CGI", "", sort_names)
+      
       if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
       if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
       if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
       if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
-      targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
-      targetloci0=gsub("__CGI", "", rownames(resICA$S))
+      #ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
+      
+      #target_CGI_closestTSS=CGI_closestTSS[sort_names,]
+      target_CGI_closestTSS=CGI_closestTSS[sort_names0,]
       
       if (Genome <=2){
         #  #https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=chr10%3A82116202-82117120&showTracks=1
         #  #CpGi=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/",Genome,"Tracks?db=",version, "&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">UCSC Genome Browser</a>")
         
-
-        target_CGI_closestTSS=CGI_closestTSS[sort_names,]
         CGI_URL=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=",genomeref, "&position=",targetloci[,1],"%3A",as.numeric(targetloci[,2]),"-",as.numeric(targetloci[,3]),"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>")
+
         #GeneSymbol=paste0("<a href=\"https://genome.ucsc.edu/cgi-bin/hgTracks?db=hg19&position=",chr,"%3A",start,"-",end,"&showTracks=1","\" target=\"blank_\">GenomeBrowser</a>"),
       }
       
@@ -431,11 +433,8 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
                              
                              genesymbol="CGI",
                              Loadings=as.numeric(round(target_dm[sort_names],2)),
-                             #ClosestTSS=as.vector(target_CGI_closestTSS[,"symbol"]),
-                             #DistToClosestTSS=as.numeric(target_CGI_closestTSS[,"dist"])
-                             ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
-                             DistToClosestTSS=as.numeric(CGI_closestTSS[as.matrix(targetloci0),"dist"])
-                             #genesymbol=paste(targetloci[,1],targetloci[,2],targetloci[,3],sep="_"),
+                             ClosestTSS=as.vector(target_CGI_closestTSS[,"symbol"]),
+                             DistToClosestTSS=as.numeric(target_CGI_closestTSS[,"dist"])
 
                              
       )
