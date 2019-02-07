@@ -327,10 +327,10 @@ generate_region2loadings<-function(resICA,Genome,Feature){
     targetloci0=gsub("__CGI", "", rownames(resICA$S))
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     
-    if (Genome==1){CGI_closestTSS=read.table("~/annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==2){CGI_closestTSS=read.table("~/annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==3){CGI_closestTSS=read.table("~/annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==4){CGI_closestTSS=read.table("~/annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==1){CGI_closestTSS=read.table("/annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==2){CGI_closestTSS=read.table("/annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==3){CGI_closestTSS=read.table("/annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==4){CGI_closestTSS=read.table("/annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
     
 
     for(i in 1:ncol(resICA$S)){
@@ -407,10 +407,10 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       sort_names0=gsub("__CGI", "", sort_names)
       
-      if (Genome==1){CGI_closestTSS=read.table("~/annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==2){CGI_closestTSS=read.table("~/annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==3){CGI_closestTSS=read.table("~/annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==4){CGI_closestTSS=read.table("~/annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==1){CGI_closestTSS=read.table("/annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==2){CGI_closestTSS=read.table("/annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==3){CGI_closestTSS=read.table("/annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==4){CGI_closestTSS=read.table("/annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
       #ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
       
