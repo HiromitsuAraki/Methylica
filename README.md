@@ -81,5 +81,5 @@ Boxplot of methylome data in each region is appeared by clicking gene symbol (se
 #### Boxplot of highly contributed region
 The x axis is methylation level and the y axis is sample features. Users can select another sample feature defined in sample meta data in *Sample property* box. 
 
-<img src="./README_files/Figures/Boxplots_highLF.png" width=500x500>
+<img src="./README_files/Figures/Boxplot_highLF.png" width=500x500>
 <br>
