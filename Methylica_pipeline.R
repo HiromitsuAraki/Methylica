@@ -1,3 +1,5 @@
+
+###Library install###
 librarylist_cran=c("shinyBS","shinyjs","shinydashboard","R.utils","data.table","png",
                    "fields","rmarkdown","DT","ggpubr","sparklyr","flexdashboard","shinycssloaders","highcharter","fastICA","rgl","pals","circlize")
 
@@ -10,8 +12,9 @@ if(length(librarylist_bc[!(is.exist_bc)])>0){
   install.packages("BiocManager")
   BiocManager::install(librarylist_bc[!(is.exist_bc)])
 }
+###Library install###
 
-
+###Library loading###
 library(R.utils)
 library(fastICA)
 library(rmarkdown)
@@ -21,6 +24,7 @@ library(rgl)
 library(pals)
 library(circlize)
 library(ComplexHeatmap)
+###Library loading###
 
 
 
@@ -147,7 +151,8 @@ make_ICA_heatmap_shiny<-function(resICA,sampleList,GenomicFeature){
 }
 
 
-make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Target,GenomicFeature){
+##########make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Target,GenomicFeature){
+make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Target,GenomicFeature,Platform){
   library(circlize)
   library(ComplexHeatmap)
   
@@ -205,9 +210,6 @@ make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Targ
   if (length(target_dm)>0){
     sort_names=names(sort(target_dm,decreasing=T))
     
-    #datamat2=data.frame(datamat[sort_names,rownames(sampleList)],IC=target_dm[sort_names])
-    #datamat0=datamat[sort_names,rownames(sampleList)]
-    
     datamat2=data.frame(dm_data[sort_names,rownames(sampleList)],IC=target_dm[sort_names])
     datamat0=dm_data[sort_names,rownames(sampleList)]
     
@@ -228,7 +230,10 @@ make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Targ
     )
     
     coL=colorRampPalette(c("darkblue","yellow"))(10)
-
+    
+    if (Platform==1){meth_legend="meth level"}
+    if (Platform==2){meth_legend="beta value"}
+    
     xx<-row_ha+Heatmap(datamat0,col=coL,
                        width = unit(widthunit, "mm"), cluster_rows = FALSE,
                        top_annotation = ha, 
@@ -236,7 +241,8 @@ make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Targ
                        clustering_distance_columns = "euclidean",
                        clustering_method_columns="ward.D2",
                        show_row_names = FALSE,
-                       name="meth level",
+                       ##########name="meth level",
+                       name=meth_legend,
                        column_title = paste(Loci,"\nIC",i,"(Loadings>",Zscore,":",ZhighNum, ", Loadings<-", Zscore , ":", ZlowNum,")",sep=""),
                        bottom_annotation_height = unit(2, "cm"))
     
@@ -321,10 +327,10 @@ generate_region2loadings<-function(resICA,Genome,Feature){
     targetloci0=gsub("__CGI", "", rownames(resICA$S))
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     
-    if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-    if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==1){CGI_closestTSS=read.table("annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==2){CGI_closestTSS=read.table("annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==3){CGI_closestTSS=read.table("annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+    if (Genome==4){CGI_closestTSS=read.table("annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
     
 
     for(i in 1:ncol(resICA$S)){
@@ -401,10 +407,10 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       sort_names0=gsub("__CGI", "", sort_names)
       
-      if (Genome==1){CGI_closestTSS=read.table("hg38_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==2){CGI_closestTSS=read.table("hg19_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==3){CGI_closestTSS=read.table("mm10_cgi2closestTSS_nr",header=T,row.names=1)}
-      if (Genome==4){CGI_closestTSS=read.table("mm9_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==1){CGI_closestTSS=read.table("annotation/hg38_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==2){CGI_closestTSS=read.table("annotation/hg19_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==3){CGI_closestTSS=read.table("annotation/mm10_cgi2closestTSS_nr",header=T,row.names=1)}
+      if (Genome==4){CGI_closestTSS=read.table("annotation/mm9_cgi2closestTSS_nr",header=T,row.names=1)}
       
       #ClosestTSS=as.vector(CGI_closestTSS[as.matrix(targetloci0),"symbol"]),
       
