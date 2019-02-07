@@ -19,7 +19,6 @@ library(shinyjs)
 library(shinydashboard)
 library(R.utils)
 library(data.table)
-#library(jpeg)
 library(png)
 library(fields)
 library(circlize)
@@ -58,7 +57,6 @@ shinyServer(function(input, output, session) {
     inFile <- input$data_input
     if (is.null(inFile))
       return(NULL)
-      #return(data.frame(fread(inFile$datapath,header=T),row.names=1))
       return(data.frame(fread(inFile$datapath,header=T)))
   })
   
@@ -181,7 +179,9 @@ shinyServer(function(input, output, session) {
     Zscore=as.integer(input$loadings)
     GenomicFeature=input$GenomicFeature
     datamat=data_methylome()
-    make_highLF_heatmap_target_shiny(ICA_result,inFile_ICA,datamat,Zscore,Target,GenomicFeature)
+    Platform=input$checkPlatform
+    ##########make_highLF_heatmap_target_shiny(ICA_result,inFile_ICA,datamat,Zscore,Target,GenomicFeature)
+    make_highLF_heatmap_target_shiny(ICA_result,inFile_ICA,datamat,Zscore,Target,GenomicFeature,Platform)
   })
   
   
@@ -284,9 +284,11 @@ shinyServer(function(input, output, session) {
     if (input$GenomicFeature==4){genomicFeature="Promoter";   Title=paste("Methylation Plot",highLFlist_fun()$genesymbol[SelectedRow()], genomicFeature,sep="  ")}
     
     TargetGroup=as.character(input$SampleProperty2)
-    #dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),])*100)
     dF=data.frame(sampleInfo()[,TargetGroup], as.numeric(plotInput()[SelectedRow(),]))
     colnames(dF)=c(TargetGroup,"meth")
+    
+     if (input$checkPlatform==1) {YlaB="Methylation level (%)"; YliM=c(0,100)}
+     if (input$checkPlatform==2) {YlaB="beta value";            YliM=c(0,1)}
     
     gp<-ggboxplot(dF,
                   colnames(dF)[1],colnames(dF)[2],
@@ -298,11 +300,12 @@ shinyServer(function(input, output, session) {
                   #add.params = list(size=2),
                   xlab="",
                   size=1,
-                  ylim=c(0,100),ylab="Methylation level (%)") + 
-      font("ylab", size = 20, color = "black")+
-      font("y.text", size = 20, color = "black")+
-      #ylim=c(0,1),ylab="Methylation level") + 
+                  ##########ylim=c(0,100),ylab="Methylation level (%)") + 
+                  ylim=YliM,ylab=YlaB) + 
       
+      font("ylab",   size = 20, color = "black")+
+      font("y.text", size = 20, color = "black")+
+  
       theme(axis.text.x = element_blank())
     
     gp <- gp + bgcolor("lightgray")

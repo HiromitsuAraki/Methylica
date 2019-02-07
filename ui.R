@@ -19,7 +19,6 @@ library(shinyjs)
 library(shinydashboard)
 library(R.utils)
 library(data.table)
-#library(jpeg)
 library(png)
 library(fields)
 library(circlize)
@@ -64,14 +63,20 @@ shinyUI(dashboardPage(skin="blue",
       tabItem(tabName = "DAtaupload",
           fileInput("data_input",  label="Upload methylome data",    accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt')),
           fileInput("sample_input",label="Upload sample information",accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt'))
-         #fileInput("RData_ICA",   label="Upload RData ICA",         accept=c('text/csv', 'text/comma-separated-values,text/plain', '.txt'))
-          
       ),
       
       
       # 2nd tab content
       tabItem(tabName = "PArameters",
 
+              #Platforms              
+              radioButtons("checkPlatform", 
+                           label = h3("Select Platform"), 
+                           choices = list("Sequence-based" = 1, 
+                                          "Infinium array (450K or EPIC)" = 2),                           
+                           selected = ""),
+              br(),
+              
               #Reference version              
               radioButtons("checkGenome", 
                            label = h3("Select Genome"), 
