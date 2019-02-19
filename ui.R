@@ -47,8 +47,9 @@ shinyUI(dashboardPage(skin="blue",
       menuItem("Data upload", tabName = "DAtaupload", icon = icon("th")),
       menuItem("Parameters",  tabName = "PArameters", icon = icon("th")),
       menuItem("ICs",         tabName = "ics",        icon = icon("th")),
-      menuItem("Loadings",    tabName = "LOadings",   icon = icon("th")),
-      menuItem("README",      tabName = "REadme",     icon = icon("th"))
+      menuItem("Loadings",    tabName = "LOadings",   icon = icon("th"))
+      #menuItem("Loadings",    tabName = "LOadings",   icon = icon("th")),
+      #menuItem("README",      tabName = "REadme",     icon = icon("th"))
     )
   ),
   ##Header End
@@ -191,16 +192,16 @@ shinyUI(dashboardPage(skin="blue",
                   downloadButton('downloadhighLFlist','Download')
                 )
               )
-              
-      ),
+       )       
+      #),
 
 
       # 5th tab content (README)
-      tabItem(tabName = "REadme",
-              fluidPage(
-                #includeMarkdown("./Untitled.rmd")
-              )
-      )
+      #tabItem(tabName = "REadme",
+      #        fluidPage(
+                ###includeMarkdown("./Untitled.rmd")
+              #)
+      #)
       
                               
     )
