@@ -69,7 +69,7 @@ Once an IC of interest is identified, *Methylica* can display its high loading g
 #### Heatmap clustering of highly contributed regions
 Users can assign IC and threshold of loadings to be visualized in "IC" and "Loadings" text box respectively. The vertical axis corresponds to genomic regions with high loadings and the horizontal axis corresponds to samples. The genomic regions are sorted by loadings. Heatmap clustering can be downloaded by pressing *Download* button.
 
-<img src="./README_files/Figures/HeatmapClustering_highLF_new.png" width=500x500>
+<img src="./README_files/Figures/HeatmapClustering_highLF.png" width=500x500>
 <br>
 
 #### Loadings table of highly contributed regions
