@@ -93,9 +93,10 @@ shinyUI(dashboardPage(skin="blue",
               radioButtons("GenomicFeature", 
                            label = h3("Select Feature"), 
                            choices = list("CGI"       = 1, 
-                                          "Gene body" = 2, 
-                                          "1st intron"= 3,
-                                          "Promoter"  = 4),                           
+                                          "CGI shores"= 2, 
+                                          "Gene body" = 3, 
+                                          "1st intron"= 4,
+                                          "Promoter"  = 5),                           
                            selected = ""),
 
 
