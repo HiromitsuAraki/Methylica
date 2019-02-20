@@ -18,7 +18,7 @@ The following R code will launch *Methylica*.
   - 1st column: Chr
   - 2nd column: Start
   - 3rd column: End
-  - 4th column: Gene symbol (if users analyize CpG island or CpG island shores, "CGI" should be described in 4th column)
+  - 4th column: Gene symbol (if users analyize CpG island or CpG island shores, "CGI" should be described in this column)
   - 5th column ~ : Methylome data of each sample
   <br>
 - Sample meta data
