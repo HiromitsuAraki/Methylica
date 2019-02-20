@@ -84,9 +84,10 @@ make_ICA_heatmap_shiny<-function(resICA,sampleList,GenomicFeature){
   collist=grDevices::colors()[grep('gr(a|e)y', grDevices::colors(), invert = T)][sample(433,100,replace=F)]
   
   if (GenomicFeature==1){Loci="CGI"}
-  if (GenomicFeature==2){Loci="Gene body"}
-  if (GenomicFeature==3){Loci="1st intron"}
-  if (GenomicFeature==4){Loci="Promoter"}
+  if (GenomicFeature==2){Loci="CGI shores"}
+  if (GenomicFeature==3){Loci="Gene body"}
+  if (GenomicFeature==4){Loci="1st intron"}
+  if (GenomicFeature==5){Loci="Promoter"}
 
   ###all data
   A=resICA$A
@@ -179,9 +180,10 @@ make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Targ
   
   
   if (GenomicFeature==1){Loci="CGI"}
-  if (GenomicFeature==2){Loci="Gene body"}
-  if (GenomicFeature==3){Loci="1st intron"}
-  if (GenomicFeature==4){Loci="Promoter"}
+  if (GenomicFeature==2){Loci="CGI shores"}
+  if (GenomicFeature==3){Loci="Gene body"}
+  if (GenomicFeature==4){Loci="1st intron"}
+  if (GenomicFeature==5){Loci="Promoter"}
   
   ColList=NULL
   for (i in 1:ncol(sampleList)){
@@ -304,7 +306,8 @@ generate_region2loadings<-function(resICA,Genome,Feature){
   ###all data
   targetregions=NULL
   
-  if (Feature>=2){
+  #if (Feature>=2){
+  if (Feature>=3){
     targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     
     if (Genome<=2){geneSymbols2Id <- mapIds(org.Hs.eg.db, keys=targetloci[,4], column="ENTREZID", keytype="SYMBOL", multiVals="first")}
@@ -322,7 +325,8 @@ generate_region2loadings<-function(resICA,Genome,Feature){
     }
   }
   
-  if (Feature==1){
+  #if (Feature==1){
+  if (Feature<=2){
     targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
     targetloci0=gsub("__CGI", "", rownames(resICA$S))
     #targetloci=matrix(unlist(strsplit(rownames(resICA$S), "__")),ncol=4,byrow=T)
@@ -381,7 +385,8 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
     
     #targetloci=matrix(unlist(strsplit(names(target_dm), "_")),ncol=4,byrow=T)
     
-    if (Feature>=2){
+    #if (Feature>=2){
+    if (Feature>=3){
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       
       if (Genome <=2){
@@ -402,7 +407,8 @@ generate_highLF_target_shiny<-function(resICA,TargetIC,Zscore,Genome,Feature){
                              Loadings=as.numeric(round(target_dm[sort_names],2)))
     }
     
-    if (Feature==1){
+    #if (Feature==1){
+    if (Feature<=2){
       
       targetloci=matrix(unlist(strsplit(sort_names, "__")),ncol=4,byrow=T)
       sort_names0=gsub("__CGI", "", sort_names)
