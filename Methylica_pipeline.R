@@ -223,7 +223,8 @@ make_highLF_heatmap_target_shiny<-function(resICA,sampleList,datamat,Zscore,Targ
                            annotation_name_side="left"
     )
     
-    row_ha = rowAnnotation(Loadings = row_anno_barplot(value, axis = TRUE, axis_side = "bottom",baseline=0,ylim=c(-15,15)),
+    #row_ha = rowAnnotation(Loadings = row_anno_barplot(value, axis = TRUE, axis_side = "bottom",baseline=0,ylim=c(-15,15)),
+    row_ha = rowAnnotation(Loadings = row_anno_barplot(value, axis = TRUE, baseline=0,ylim=c(-15,15)),
                            width = unit(3, "cm"),
                            show_annotation_name = TRUE,
                            annotation_name_offset = unit(1, "cm"),
